@@ -7,16 +7,16 @@
 
 import UIKit
 
-protocol CreateAccountViewInput {
-    var output: CreateAccountViewOutput? { get set }
+protocol TodoListViewInput {
+    var output: TodoListViewOutput? { get set }
 }
 
-protocol CreateAccountViewOutput: AnyObject {
-    func userSelectCreateAccount(withLogin login: String, password: String)
+protocol TodoListViewOutput: AnyObject {
+    func userSelectCreateTodo(withLogin login: String, password: String)
 }
 
-final class CreateAccountView: UIViewController, CreateAccountViewInput {
-    var output: CreateAccountViewOutput?
+final class TodoListView: UIViewController, TodoListViewInput {
+    var output: TodoListViewOutput?
     
     private let loginLabel: UILabel
     private let passwordLabel: UILabel
@@ -70,6 +70,6 @@ final class CreateAccountView: UIViewController, CreateAccountViewInput {
     }
     
     @objc private func buttonPressed () {
-        output?.userSelectCreateAccount(withLogin: loginLabel.text ?? "", password: passwordLabel.text ?? "")
+        output?.userSelectCreateTodo(withLogin: loginLabel.text ?? "", password: passwordLabel.text ?? "")
     }
 }

@@ -7,13 +7,13 @@
 
 import UIKit
 
-class CreateAccountAssembly {
-    static func assembleCreateAccountModule() -> UIViewController {
-        let view = CreateAccountView()
-        let interactor = CreateAccountInteractor()
-        let router = CreateAccountRouter()
+class TodoListAssembly {
+    static func assembleTodoListModule() -> UIViewController {
+        let view = TodoListView()
+        let interactor = TodoListInteractor()
+        let router = TodoListRouter()
         
-        let presenter = CreateAccountPresenter(interactor: interactor,
+        let presenter = TodoListPresenter(interactor: interactor,
                                                router: router,
                                                view: view)
         

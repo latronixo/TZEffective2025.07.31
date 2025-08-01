@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol CreateAccountRouterInput {
-    func openAuthScreen(withLogin login: String)
+protocol TodoListRouterInput {
+    func openAddScreen(withLogin login: String)
 }
 
-final class CreateAccountRouter: CreateAccountRouterInput {
+final class TodoListRouter: TodoListRouterInput {
     weak var rootViewController: UIViewController?
     
-    func openAuthScreen(withLogin login: String) {
+    func openAddScreen(withLogin login: String) {
         let newVc = UIViewController(nibName: nil, bundle: nil)
         newVc.view.backgroundColor = .green
         rootViewController?.present(newVc, animated: true, completion: nil)
