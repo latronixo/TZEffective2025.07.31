@@ -18,11 +18,11 @@ protocol CreateAccountPresenterOutput {
 final class CreateAccountPresenter {
     weak var output: CreateAccountPresenterOutput?
     
-    private let interactor: CreateAccountInteractorOutput
+    private let interactor: CreateAccountInteractorInput
     private let router: CreateAccountRouterInput
     private let view: CreateAccountViewInput
     
-    init(output: CreateAccountPresenterOutput? = nil, interactor: CreateAccountInteractorOutput, router: CreateAccountRouterInput, view: CreateAccountViewInput) {
+    init(output: CreateAccountPresenterOutput? = nil, interactor: CreateAccountInteractorInput, router: CreateAccountRouterInput, view: CreateAccountViewInput) {
         self.output = output
         self.interactor = interactor
         self.router = router
@@ -42,7 +42,7 @@ extension CreateAccountPresenter: CreateAccountInteractorOutput {
         
     }
     
-    func didReceive(withLogin login: String) {
+    func didCreateAccount(withLogin login: String) {
         router.openAuthScreen(withLogin: login)
     }
 }
