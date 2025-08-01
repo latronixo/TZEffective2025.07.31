@@ -8,6 +8,7 @@
 import UIKit
 
 protocol CreateAccountInteractorInput {
+    var output: CreateAccountInteractorOutput   //переменная делагата
     func createAccount(withLogin login: String, password: String)
 }
 
