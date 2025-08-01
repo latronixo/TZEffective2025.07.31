@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+protocol CreateAccountPresenterInput {
+    var output: CreateAccountPresenterOutput
+}
+
+protocol CreateAccountPresenterOutput {
+    
+}
+
+final class CreateAccountPresenter {
+    
+    
+}
