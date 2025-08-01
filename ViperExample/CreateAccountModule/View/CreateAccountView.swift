@@ -11,7 +11,7 @@ protocol CreateAccountViewInput {
     var output: CreateAccountViewOutput? { get set }
 }
 
-protocol CreateAccountViewOutput {
+protocol CreateAccountViewOutput: AnyObject {
     func userSelectCreateAccount(withLogin login: String, password: String)
 }
 

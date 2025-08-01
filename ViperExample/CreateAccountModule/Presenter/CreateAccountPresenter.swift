@@ -11,7 +11,7 @@ protocol CreateAccountPresenterInput {
     var output: CreateAccountPresenterOutput? { get set }
 }
 
-protocol CreateAccountPresenterOutput {
+protocol CreateAccountPresenterOutput: AnyObject {
     
 }
 
@@ -22,8 +22,7 @@ final class CreateAccountPresenter {
     private let router: CreateAccountRouterInput
     private let view: CreateAccountViewInput
     
-    init(output: CreateAccountPresenterOutput? = nil, interactor: CreateAccountInteractorInput, router: CreateAccountRouterInput, view: CreateAccountViewInput) {
-        self.output = output
+    init(interactor: CreateAccountInteractorInput, router: CreateAccountRouterInput, view: CreateAccountViewInput) {
         self.interactor = interactor
         self.router = router
         self.view = view
