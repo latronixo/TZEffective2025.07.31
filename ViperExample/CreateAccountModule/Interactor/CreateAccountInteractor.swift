@@ -8,15 +8,23 @@
 import UIKit
 
 protocol CreateAccountInteractorInput {
-    var output: CreateAccountInteractorOutput   //переменная делагата
+    var output: CreateAccountInteractorOutput? { get set }   //переменная делагата
     func createAccount(withLogin login: String, password: String)
 }
 
-protocol CreateAccountInteractorOutput {
+protocol CreateAccountInteractorOutput: AnyObject {
     func didReceive(error: String)
-    func didReceive(withLogin login: String)
+    func didCreateAccount(withLogin login: String)
 }
 
 final class CreateAccountInteractor: CreateAccountInteractorInput {
+    weak var output: CreateAccountInteractorOutput?
     
+    func createAccount(withLogin login: String, password: String) {
+        let _ = Account(login: login, password: password)
+        // some ...
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.output?.didCreateAccount(withLogin: login)
+        }
+    }
 }
